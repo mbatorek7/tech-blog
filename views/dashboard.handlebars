@@ -1,0 +1,18 @@
+<div>
+    <h2>Recent Posts</h2>
+    {{#each readablePost}}
+    <div>
+        <p>
+            {{title}}
+        </p>
+        <p>
+            {{content}}
+        </p>
+    </div>
+    {{/each}}
+
+<button type="submit" class="btn"><a class="link" href="./newPost.handlebars">+ New Post</a></button>
+
+</div>
+
+<script src="../public/js/addPost.js"></script>
