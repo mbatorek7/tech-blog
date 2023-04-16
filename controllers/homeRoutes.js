@@ -22,6 +22,9 @@ router.get('/signup', async(req, res) => {
     res.render("signup")
 });
 
+router.get('/newPost', async(req, res) => {
+    res.render("newPost")
+});
 
 
 module.exports = router;

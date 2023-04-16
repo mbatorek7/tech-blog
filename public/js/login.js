@@ -1,10 +1,12 @@
-const loginFormHandler = async (event) => {
-    // Stop the browser from submitting the form so we can do so with JavaScript
-    event.preventDefault();
+const submitBtn = document.getElementById("login");
+
+const loginFormHandler = async (event) => { console.log("click")
+  // Stop the browser from submitting the form so we can do so with JavaScript
+  event.preventDefault();
   
     // Gather the data from the form elements on the page
-    const email = document.querySelector('#email-login').value.trim();
-    const password = document.querySelector('#password-login').value.trim();
+    const email = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
   
     if (email && password) {
       // Send the e-mail and password to the server
@@ -14,15 +16,15 @@ const loginFormHandler = async (event) => {
         headers: { 'Content-Type': 'application/json' },
       });
   
+      const data = await response.json();
+      console.log(data);
       if (response.ok) {
-        document.location.replace('/');
+        //document.location.replace('/');
       } else {
         alert('Failed to log in');
       }
     }
   };
   
-  document
-    .querySelector('.login-form')
-    .addEventListener('submit', loginFormHandler);
+  submitBtn.addEventListener('click', (e) => loginFormHandler(e));
   
