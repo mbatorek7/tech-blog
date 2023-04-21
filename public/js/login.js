@@ -19,7 +19,7 @@ const loginFormHandler = async (event) => { console.log("click")
       const data = await response.json();
       console.log(data);
       if (response.ok) {
-        //document.location.replace('/');
+        document.location.replace('/dashboard');
       } else {
         alert('Failed to log in');
       }

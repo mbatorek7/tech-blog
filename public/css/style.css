@@ -1,0 +1,13 @@
+body {
+    background-color: lightblue;
+    font-family: 'Space Grotesk', 'Open Sans', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.navbar-inverse .navbar-inner {
+  background-color: #586214;
+  background-image: none;
+}

@@ -22,13 +22,13 @@ router.post('/login', async(req, res) => {
             if(err) {
                 console.error(err);
             }
-            console.log("success");
+
             req.session.userId = user.id;
             req.session.email = user.email;
             req.session.loggedIn = true;
             console.log("------->", req.session);
+            res.json({user, message: "You are now logged in."})
         });
-        res.json({user, message: "You are now logged in."})
     } else {
         return res.status(400).json({error: "Invalid password"});
     }
@@ -50,6 +50,7 @@ router.post('/create', async(req, res) => {
 
 router.post('/logout', async(req, res) => {
     console.log("------->logout", req.session);
+    console.log(req.session.loggedIn)
     if(req.session.loggedIn) {
         req.session.destroy(() => {
             res.status(200).json({message: "Logged out"})
