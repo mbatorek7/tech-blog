@@ -7,7 +7,6 @@ const signupFormHandler = async (e) => {
     // Gather the data from the form elements on the page
     const email = document.getElementById('username').value.trim();
     const password = document.getElementById('password').value.trim();
-    console.log(email, password);
 
     if (email && password) {
         // Send the e-mail and password to the server
@@ -17,9 +16,7 @@ const signupFormHandler = async (e) => {
           headers: { 'Content-Type': 'application/json' },
         });
 
-       console.log(response);
        const user = await response.json();
-       console.log(user); 
     }
 };
 

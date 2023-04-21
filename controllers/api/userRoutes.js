@@ -1,4 +1,5 @@
 const User = require('../../models/User');
+const Post = require('../../models/post');
 
 const router = require('express').Router();
 
@@ -50,7 +51,6 @@ router.post('/create', async(req, res) => {
 
 router.post('/logout', async(req, res) => {
     console.log("------->logout", req.session);
-    console.log(req.session.loggedIn)
     if(req.session.loggedIn) {
         req.session.destroy(() => {
             res.status(200).json({message: "Logged out"})
@@ -59,6 +59,19 @@ router.post('/logout', async(req, res) => {
         res.status(400).json({error: "not logged in"});
     }
 
+});
+
+router.post('/post', async(req, res) => {
+    console.log(req.body);
+
+    const {title, content} = req.body;
+
+    const newPost = await Post.create({
+        title,
+        content
+    });
+
+    res.json(newPost);
 });
 
 module.exports = router;

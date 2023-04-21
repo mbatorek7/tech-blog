@@ -1,13 +1,18 @@
 <div>
-    <h2>Recent Posts</h2>
+    <div class="card-header">
+        <h2>Recent Posts</h2>
+    </div>
+    
     {{#each readablePost}}
-    <div>
+    <div class="post-card">
+        
         <p>
-            {{title}}
+            Title: {{title}}
         </p>
         <p>
-            {{content}}
+            Content: {{content}}
         </p>
+        <br>
     </div>
     {{/each}}
 
